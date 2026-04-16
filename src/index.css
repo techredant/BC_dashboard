@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 60% 18%;
+    --primary-foreground: 45 100% 94%;
+
+    --secondary: 220 16% 93%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 16% 93%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 42 92% 55%;
+    --accent-foreground: 222 60% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 60% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 60% 12%;
+
+    --info: 210 100% 52%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 16% 90%;
+    --input: 220 16% 90%;
+    --ring: 222 60% 18%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 222 60% 12%;
+    --sidebar-foreground: 220 20% 85%;
+    --sidebar-primary: 42 92% 55%;
+    --sidebar-primary-foreground: 222 60% 12%;
+    --sidebar-accent: 222 50% 18%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 222 40% 20%;
+    --sidebar-ring: 42 92% 55%;
+    --sidebar-muted: 222 30% 25%;
+
+    --chart-1: 222 60% 18%;
+    --chart-2: 42 92% 55%;
+    --chart-3: 152 60% 42%;
+    --chart-4: 210 100% 52%;
+    --chart-5: 0 72% 51%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(222 60% 18%), hsl(222 60% 28%));
+    --gradient-accent: linear-gradient(135deg, hsl(42 92% 55%), hsl(38 92% 50%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 20% 97%));
+    --shadow-card: 0 1px 3px 0 hsl(222 60% 18% / 0.06), 0 1px 2px -1px hsl(222 60% 18% / 0.06);
+    --shadow-elevated: 0 10px 25px -5px hsl(222 60% 18% / 0.1), 0 8px 10px -6px hsl(222 60% 18% / 0.08);
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 220 20% 95%;
+    --card: 222 47% 9%;
+    --card-foreground: 220 20% 95%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 220 20% 95%;
+    --primary: 42 92% 55%;
+    --primary-foreground: 222 60% 12%;
+    --secondary: 222 30% 16%;
+    --secondary-foreground: 220 20% 95%;
+    --muted: 222 30% 16%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 42 92% 55%;
+    --accent-foreground: 222 60% 12%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 42 92% 55%;
+    --sidebar-background: 222 60% 8%;
+    --sidebar-foreground: 220 20% 85%;
+    --sidebar-primary: 42 92% 55%;
+    --sidebar-primary-foreground: 222 60% 12%;
+    --sidebar-accent: 222 50% 14%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 222 40% 14%;
+    --sidebar-ring: 42 92% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .stat-card {
+    @apply bg-card rounded-xl border p-5 transition-all duration-200 hover:shadow-lg;
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-card:hover {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .badge-national {
+    @apply bg-primary text-primary-foreground text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-county {
+    @apply bg-accent text-accent-foreground text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-constituency {
+    background-color: hsl(var(--info));
+    color: hsl(var(--info-foreground));
+    @apply text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-ward {
+    background-color: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+    @apply text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-verified {
+    background-color: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+    @apply text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-pending {
+    background-color: hsl(var(--warning));
+    color: hsl(var(--warning-foreground));
+    @apply text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-unverified {
+    @apply text-xs font-medium px-2.5 py-0.5 rounded-full;
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+  }
+
+  .page-header {
+    @apply mb-8;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  .page-description {
+    @apply text-muted-foreground mt-1;
+  }
+}
